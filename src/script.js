@@ -1,4 +1,7 @@
-
+import { registerSW } from 'virtual:pwa-register'
+registerSW({
+    immediate: true
+})
 const areas = document.querySelectorAll("rect");
 const room = document.querySelector(".room");
 const confirmpopup = document.querySelector(".confirmpopup");
