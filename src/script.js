@@ -425,7 +425,7 @@ function viewLogs(){
         const copy = entry.cloneNode(true);
         copy.style.display = "flex";
         const sections = copy.querySelectorAll("div");
-        sections[1].innerText = "No logs available rn";
+        sections[1].innerText = "No logs available right now";
         entrycontainer.appendChild(copy);
         return;
     }
@@ -447,20 +447,28 @@ function viewPartLogs(code){
         const copy = entry.cloneNode(true);
         copy.style.display = "flex";
         const sections = copy.querySelectorAll("div");
-        sections[1].innerText = "No logs available rn";
+        sections[1].innerText = "No logs available right now";
         entrycontainer.appendChild(copy);
         return;
     }
+    var hasLogs = false;
     data.forEach(dataset => {
         console.log(dataset);
         if(dataset.code == code){
+        hasLogs = true;
         const copy = entry.cloneNode(true);
         copy.style.display = "flex";
         const sections = copy.querySelectorAll("div");
-
         sections[0].innerText = dataset.from;
         sections[1].innerText = dataset.to;
         sections[2].innerText = dataset.resort;
+        entrycontainer.appendChild(copy);
+        }
+        if(!hasLogs) {
+        const copy = entry.cloneNode(true);
+        copy.style.display = "flex";
+        const sections = copy.querySelectorAll("div");
+        sections[1].innerText = "No logs available right now";
         entrycontainer.appendChild(copy);
         }
     })
